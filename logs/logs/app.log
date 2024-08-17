@@ -1,0 +1,2 @@
+2024-08-17 11:21:51,095 - INFO - user details added in Database,<models.User object at 0x00000169C141E840>
+2024-08-17 11:21:51,096 - INFO - user created{'username': 'Premnath', 'email': 'Premnath@gmail.com'}
