@@ -2,7 +2,7 @@ from cryptography.fernet import Fernet
 import base64
 
 # Initialize the Fernet cipher with the provided key
-fernet = Fernet(b"us2D-fbB0bjfKlMONGOaooDAPn5U9uuBYsKQf6dBJlI=")
+fernet = Fernet()
 
 def encrypt_data(plain_data: str) -> str:
     data_bytes = plain_data.encode("utf-8")
