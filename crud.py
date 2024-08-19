@@ -1,20 +1,23 @@
 import schemas
 import models
 import datetime
+from core.password_hashing import encrypt_data,decrypt_data
 from sqlalchemy.orm import Session
-from logs.qtoolslogger import logger
+from program_logs.qtoolslogger import logger
 
 
 #User Creation on DB
 def create_users(db: Session, user: schemas.UserCreate):
-    db_user = models.User(username=user.username, email=user.email,
-        hash_password=user.hash_password,
+    password=(user.password)
+    db_user = models.User(username=user.username, email=user.email,               
+        hash_password=encrypt_data(password),
         created_at=datetime.datetime.utcnow(),
         modified_at=datetime.datetime.utcnow())
     db.add(db_user)
     db.commit()
     db.refresh(db_user)
     logger.info(f"user details added in Database,{db_user}")
+    # logger.info(decrypt_data(db_user.hash_password))
     return {
         "username": db_user.username,
         "email": db_user.email
