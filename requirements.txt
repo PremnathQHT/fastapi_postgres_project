@@ -4,3 +4,6 @@ uvicorn
 psycopg2-binary
 pydantic[email]
 pyotp
+pyjwt
+passlib[bycrpt]
+
