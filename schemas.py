@@ -7,7 +7,7 @@ from datetime import datetime
 class UserCreate(BaseModel):
     username: str
     email: EmailStr
-    hash_password: str
+    password: str
 
     class Config:
         orm_mode = True

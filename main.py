@@ -1,65 +1,40 @@
-from fastapi import FastAPI, HTTPException, Depends
+from fastapi import FastAPI, HTTPException, Depends,status
+from typing import Annotated
+from fastapi.security import OAuth2PasswordBearer
 import schemas
-from typing import List, Annotated
-import models 
-from database import engine, SessionLocal
+import models
+
+from database import engine,get_db
 from sqlalchemy.orm import Session
 import datetime
 import uvicorn
+import crud
+from program_logs.qtoolslogger import logger
 
 
 app = FastAPI()
 
+
 # This line will create all tables and columns in Postgres
 models.Base.metadata.create_all(bind=engine)
 
-def get_db():
-    db = SessionLocal()
-    try:
-        yield db
-    finally:
-        db.close()
 
-
-
-
-@app.post("/create-user")
+#Create user API
+@app.post("/create-user",status_code=status.HTTP_200_OK)
 async def create_user(user: schemas.UserCreate, db: Session = Depends(get_db)):
-    db_user = models.User(
-        username=user.username,
-        email=user.email,
-        hash_password=user.hash_password,
-        created_at=datetime.datetime.utcnow(),
-        modified_at=datetime.datetime.utcnow()
-    )
-    db.add(db_user)
-    db.commit()
-    db.refresh(db_user)
-    return{
-        "username": db_user.username,
-        "email": db_user.email
-    }
-
-@app.post("/define-roles")
+    creation=crud.create_users(user=user,db=db)
+    logger.info(f"user created{creation}")
+    return {"message": "User created successfully", "user": creation}
+#Create NEW Roles API
+@app.post("/define-roles",status_code=status.HTTP_200_OK)
 async def roledefinition(role_definition: schemas.CreateRoles, db: Session = Depends(get_db)):
-    def_role = models.Role(
-        role_id=role_definition.role_id,
-        role_name=role_definition.role_name,)
-    db.add(def_role)
-    db.commit()
-    db.refresh(def_role)
-    return def_role
+  return crud.roles_definition(role_def=role_definition,db=db)
 
-@app.put("/assign-roles")
+#Assign roles to users API
+@app.put("/assign-roles",status_code=status.HTTP_200_OK)
 async def roledefinition(roles_assign: schemas.AssignRoles, db: Session = Depends(get_db)):
-    assign_role = models.UserRole(
-        user_id=roles_assign.user_id,
-        role_id=roles_assign.role_id,)
-    db.add(assign_role)
-    db.commit()
-    db.refresh(assign_role)
-    return assign_role
-
+   return crud.assigning_roles(role_assign=roles_assign,db=db)
+ 
 
 if __name__ == "__main__":
-    uvicorn.run("main:app", host="localhost", port=8000, log_level="info")
+    uvicorn.run("main:app", host="localhost", port=8002, log_level="info")
