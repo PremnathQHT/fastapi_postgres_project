@@ -9,9 +9,9 @@ class User(Base):
     username = Column(String(50), index=True, nullable=False)
     email = Column(String(50), index=True, nullable=False)
     hash_password = Column(String(255), index=True, nullable=False)
-    created_at = Column(DateTime, default=datetime.datetime.utcnow, nullable=False)
-    modified_at = Column(DateTime, default=datetime.datetime.utcnow, onupdate=datetime.datetime.utcnow, nullable=False)
-    verified=Column(Boolean,default=False)
+    created_at = Column(DateTime, default=datetime.datetime.utcnow)
+    modified_at = Column(DateTime, default=datetime.datetime.utcnow, onupdate=datetime.datetime.utcnow)
+    verified=Column(Boolean,nullable=False)
 
 
     # Define relationship to UserRole
