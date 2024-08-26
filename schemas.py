@@ -25,3 +25,18 @@ class AssignRoles(BaseModel):
 
     class Config:
         orm_mode=True
+
+
+# Request model for OTP validation
+class OTPRequest(BaseModel):
+    mail_id:str
+
+class UserUpdate(BaseModel):
+    username: Optional[str] = None
+    email: Optional[EmailStr] = None
+    password: Optional[str] = None
+
+#User Login
+class Loginclass(BaseModel):
+    username: str
+    password: str    
