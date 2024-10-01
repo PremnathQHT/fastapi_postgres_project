@@ -1,3 +1,23 @@
+"""
+Private License (toolsmgt)
+
+This script is privately licensed and confidential. It is not intended for
+public distribution or use without explicit permission from the owner.
+
+All rights reserved (c) 2024.
+"""
+
+__author__ = "Premnath Palanichamy"
+__copyright__ = "Copyright 2024, toolsmgt"
+__license__ = "Refer Terms and Conditions"
+__version__ = "1.0"
+__maintainer__ = "Premnath"
+__email__ = "premnath@quehive.com"
+__status__ = "Development"
+__desc__ = "Main Program of toolsmgt applications"
+
+
+#Import
 import random
 import time
 
@@ -12,7 +32,7 @@ def generate_otp(email):
     print(f"Generated OTP for {email}: {otp}")
     
     # Store the OTP with expiration time (e.g., 5 minutes from now)
-    expiration_time = time.time() + 60  # 300 seconds = 5 minutes
+    expiration_time = time.time() + 105  # 300 seconds = 5 minutes
     otp_store[email] = {"otp": otp, "expiration_time": expiration_time}
     
     # Print the updated otp_store for debugging

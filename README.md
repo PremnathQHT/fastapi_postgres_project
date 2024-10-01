@@ -1,3 +1,2 @@
-# fastapi_postgres_project
-
-Python fastapi program to connect with postgresql
+toolsmgt
+An application to manage organizations, users, projects, and service allocation.

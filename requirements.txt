@@ -1,9 +1,11 @@
 fastapi
-sqlalchemy
+python-dotenv
 uvicorn
-psycopg2-binary
-pydantic[email]
-pyotp
-pyjwt
-cryptography
-jose
+psycopg2
+sqlalchemy
+email-validator
+passlib[bcrypt]
+python-jose[cryptography]
+python-multipart
+alembic
+#fastapi[all] fastapi-mail

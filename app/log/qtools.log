@@ -1,0 +1,28 @@
+2024-09-28 17:20:09,669 Getting the mail from user for validation cubdat@wowmail.app
+2024-09-28 17:20:09,672 OTP generated successfully 744402
+2024-09-28 17:20:09,673 OTP sent successfully to mail cubdat@wowmail.app
+2024-09-28 17:20:43,479 Verifying email
+2024-09-28 17:20:43,480 User data:email='cubdat@wowmail.app' otp=744402
+2024-09-28 17:20:43,549 Email Id has verified successfully and added entry in db cubdat@wowmail.app
+2024-09-28 17:20:43,549 Verification Email sent Successfully to Mail cubdat@wowmail.app
+2024-09-28 17:23:15,426 (None, None, 'viewer', 'cubdat@wowmail.app', True, False)
+2024-09-28 17:23:15,474 (trapped) error reading bcrypt version
+Traceback (most recent call last):
+  File "D:\toolsmgt-BACKEND-LOCAL\toolsmgt-backend\venv\Lib\site-packages\passlib\handlers\bcrypt.py", line 620, in _load_backend_mixin
+    version = _bcrypt.__about__.__version__
+              ^^^^^^^^^^^^^^^^^
+AttributeError: module 'bcrypt' has no attribute '__about__'
+2024-09-28 17:26:18,930 User_credentials:email='cubdat@wowmail.app' password='123456789'
+2024-09-28 17:26:19,327 (<app.models.User object at 0x000002AF0455B5F0>, <app.models.Organization object at 0x000002AF0455B620>, <app.models.user_roles object at 0x000002AF0455B650>, <app.models.role_permissions object at 0x000002AF0455B680>)
+2024-09-28 17:29:55,646 {'user_id': 9, 'org_id': 9, 'user_name': 'Yash', 'organization_name': 'KGF4', 'user_role': 'manager', 'token_type': 'refresh_token', 'exp': 1727610979}
+2024-09-28 17:43:29,114 {'user_id': 9, 'token_type': 'access_token', 'exp': 1727526595}
+2024-09-28 17:45:55,955 {'user_id': 9, 'token_type': 'access_token', 'exp': 1727526595}
+2024-09-28 17:56:54,711 User_credentials:email='cubdat@wowmail.app' password='123456789'
+2024-09-28 17:56:54,713 (trapped) error reading bcrypt version
+Traceback (most recent call last):
+  File "D:\toolsmgt-BACKEND-LOCAL\toolsmgt-backend\venv\Lib\site-packages\passlib\handlers\bcrypt.py", line 620, in _load_backend_mixin
+    version = _bcrypt.__about__.__version__
+              ^^^^^^^^^^^^^^^^^
+AttributeError: module 'bcrypt' has no attribute '__about__'
+2024-09-28 17:56:55,316 (<app.models.User object at 0x000001A4CE976450>, <app.models.Organization object at 0x000001A4CE976480>, <app.models.user_roles object at 0x000001A4CE9764B0>, <app.models.role_permissions object at 0x000001A4CE9764E0>)
+2024-09-28 17:57:07,307 {'user_id': 9, 'org_id': 9, 'user_name': 'Yash', 'organization_name': 'KGF4', 'user_role': 'manager', 'exp': 1727528215}
